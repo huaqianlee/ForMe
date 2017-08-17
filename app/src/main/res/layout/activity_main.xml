@@ -9,7 +9,7 @@
         tools:context="me.huaqianlee.forme.MainActivity">
     <!--xmlns:app="http://schemas.android.com/apk/me.huaqianlee.forme"-->
     
-    <FrameLayout
+    <android.support.design.widget.CoordinatorLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
         
@@ -22,25 +22,80 @@
                 app:popupTheme="@style/Theme.AppCompat.Light"
                 app:layout_scrollFlags="enterAlways|snap|scroll"
         >
-        
         </android.support.v7.widget.Toolbar>
-    </FrameLayout>
+        
+        <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+        >
+            
+            <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/lee"/>
+            
+        </FrameLayout>
     
-    <android.support.design.widget.NavigationView
-            android:id="@+id/nav_view"
-            android:layout_gravity="start"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:headerLayout="@layout/nav_header"
+    </android.support.design.widget.CoordinatorLayout>
+    
+    <RelativeLayout android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="start">
+        <!--        <android.support.design.widget.NavigationView
+                        android:id="@+id/nav_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:headerLayout="@layout/nav_header"
+                />-->
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                        android:layout_width="match_parent"
+                        android:layout_height="180dp"
+                        android:id="@+id/nav_layout"
+                        android:padding="10dp"
+                        android:background="?attr/colorPrimary">
+            
+            <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/nav_icon"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/lee"/>
+            
+            <TextView android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:textColor="#fff"
+                      android:layout_above="@+id/mail"
+                      android:id="@+id/usr"
+                      android:textSize="15sp"
+                      android:text="@string/me"/>
+            
+            <TextView android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:id="@+id/mail"
+                      android:text="huaqianlee@gmail.com"
+                      android:layout_alignParentBottom="true"
+                      android:textSize="15sp"
+                      android:textColor="#fff"
             />
-<!--    <TextView android:layout_width="wrap_content"
-              android:text="Why  cann't it display?"
-              android:textColor="#f556"
-              android:layout_marginTop="30dp"
-              android:textSize="25dp"
-              android:layout_gravity="start"
-              android:layout_height="wrap_content"/>
-            -->
+        
+        
+        </RelativeLayout>
+        
+        <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#fff"
+                android:layout_below="@+id/nav_layout">
+            
+            <android.support.v7.widget.RecyclerView
+                    android:id="@+id/nav_recycler_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+            
+            </android.support.v7.widget.RecyclerView>
+        </FrameLayout>
+    
+    </RelativeLayout>
 </android.support.v4.widget.DrawerLayout>
 
 

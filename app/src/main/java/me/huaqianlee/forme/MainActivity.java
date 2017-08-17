@@ -6,15 +6,23 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import me.huaqianlee.forme.adapter.NavFuncAdapter;
+import me.huaqianlee.forme.bean.Func;
 import me.huaqianlee.forme.util.LogUtil;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends BaseActivity {
 
     private final static String TAG = "ForMe.MainActivity";
     private DrawerLayout mlayout;
+    private List<Func> funcList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +46,14 @@ public class MainActivity extends BaseActivity {
                 return false;
             }
         });*/
+
+        initFunc();
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.nav_recycler_view);
+        GridLayoutManager layoutManager = new GridLayoutManager(this,2);
+        recyclerView.setLayoutManager(layoutManager);
+        NavFuncAdapter adapter = new NavFuncAdapter(funcList);
+        recyclerView.setAdapter(adapter);
+
 
 
         LogUtil.i(TAG, getString(R.string.test_log));
@@ -63,5 +79,22 @@ public class MainActivity extends BaseActivity {
 
         }
         return true;
+    }
+
+    private Func [] funcs = {new Func ("Call",R.drawable.nav_call),new Func("Friends",R.drawable.nav_friends),new Func("Location",R.drawable.nav_location),
+    new Func("Mail", R.drawable.nav_mail), new Func("Tasks",R.drawable.nav_task)};
+    private void initFunc() {
+        funcList.clear();
+        Func toDoFunc = new Func();
+        toDoFunc.setImageId(R.drawable.todo_icon);
+        toDoFunc.setName("ToDO");
+        funcList.add(toDoFunc);
+
+        Func toDoFunc2 = new Func("Lee", R.drawable.lee);
+        funcList.add(toDoFunc2);
+
+        for (int i = 0; i<funcs.length;i++) {
+            funcList.add(funcs[i]);
+        }
     }
 }

@@ -18,7 +18,7 @@
               android:layout_above="@+id/mail"
               android:id="@+id/usr"
               android:textSize="15sp"
-              android:text="huaqianlee"/>
+              android:text="@string/me"/>
     
     <TextView android:layout_width="wrap_content"
               android:layout_height="wrap_content"
