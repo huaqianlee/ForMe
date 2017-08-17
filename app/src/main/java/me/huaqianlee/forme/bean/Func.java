@@ -3,6 +3,7 @@ package me.huaqianlee.forme.bean;
 public class Func {
     private String name;
     private int imageId;
+    private boolean isSelected ;
 
     public Func(){}
     public Func (String name, int imageId) {
@@ -24,5 +25,13 @@ public class Func {
 
     public void setImageId(int imageId) {
         this.imageId = imageId;
+    }
+
+    public boolean isSelected() {
+        return isSelected;
+    }
+
+    public void setSelected(boolean selected) {
+        isSelected = selected;
     }
 }

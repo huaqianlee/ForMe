@@ -88,6 +88,7 @@ public class MainActivity extends BaseActivity {
         Func toDoFunc = new Func();
         toDoFunc.setImageId(R.drawable.todo_icon);
         toDoFunc.setName("ToDO");
+        toDoFunc.setSelected(true);
         funcList.add(toDoFunc);
 
         Func toDoFunc2 = new Func("Lee", R.drawable.lee);

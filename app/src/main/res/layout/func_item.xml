@@ -10,8 +10,11 @@
     <LinearLayout
             android:id="@+id/nav_func_layout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#fff"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:focusableInTouchMode="true"
+            android:focusable="true"
+            android:background="@drawable/selector_item_selected"
             android:orientation="vertical">
         
         <ImageView
