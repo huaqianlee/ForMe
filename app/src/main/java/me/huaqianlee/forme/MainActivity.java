@@ -1,8 +1,6 @@
 package me.huaqianlee.forme;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
@@ -11,9 +9,13 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.Toast;
 import me.huaqianlee.forme.adapter.NavFuncAdapter;
 import me.huaqianlee.forme.bean.Func;
 import me.huaqianlee.forme.util.LogUtil;
+import me.huaqianlee.forme.util.MainViewSwitch;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,12 +53,30 @@ public class MainActivity extends BaseActivity {
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.nav_recycler_view);
         GridLayoutManager layoutManager = new GridLayoutManager(this,2);
         recyclerView.setLayoutManager(layoutManager);
-        NavFuncAdapter adapter = new NavFuncAdapter(funcList);
+        final NavFuncAdapter adapter = new NavFuncAdapter(funcList);
         recyclerView.setAdapter(adapter);
+        adapter.setOnItemClickListener(new NavFuncAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                SelectedNavItem.setSlectedNavItem(position);
+                new MainViewSwitch().switchMainView(MainActivity.this);
+                adapter.notifyDataSetChanged();
+                //Toast.makeText(MainActivity.this, "your click is litsen  on " + position, Toast.LENGTH_SHORT).show();
+            }
+        });
 
 
+        new MainViewSwitch().switchMainView(this);
 
         LogUtil.i(TAG, getString(R.string.test_log));
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (mlayout.isDrawerOpen(findViewById(R.id.nav_left_layout)))
+            mlayout.closeDrawers();
+        else
+            super.onBackPressed();
     }
 
     @Override
@@ -88,11 +108,11 @@ public class MainActivity extends BaseActivity {
         Func toDoFunc = new Func();
         toDoFunc.setImageId(R.drawable.todo_icon);
         toDoFunc.setName("ToDO");
-        toDoFunc.setSelected(true);
         funcList.add(toDoFunc);
 
         Func toDoFunc2 = new Func("Lee", R.drawable.lee);
         funcList.add(toDoFunc2);
+        SelectedNavItem.setSlectedNavItem(SelectedNavItem.DATEEVENT);
 
         for (int i = 0; i<funcs.length;i++) {
             funcList.add(funcs[i]);

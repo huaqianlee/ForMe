@@ -11,11 +11,11 @@
             android:id="@+id/nav_func_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:clickable="true"
+            android:orientation="vertical">
+        <!--            android:clickable="true"
             android:focusableInTouchMode="true"
             android:focusable="true"
-            android:background="@drawable/selector_item_selected"
-            android:orientation="vertical">
+            android:background="@drawable/selector_item_selected"-->
         
         <ImageView
                 android:id="@+id/nav_func_image" android:layout_margin="10dp" android:layout_width="match_parent" android:layout_height="100dp"

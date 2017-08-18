@@ -25,14 +25,10 @@
         </android.support.v7.widget.Toolbar>
         
         <FrameLayout
+                android:id="@+id/main_view_layout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
         >
-            
-            <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:src="@drawable/lee"/>
             
         </FrameLayout>
     
@@ -40,6 +36,7 @@
     
     <RelativeLayout android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:id="@+id/nav_left_layout"
                     android:layout_gravity="start">
         <!--        <android.support.design.widget.NavigationView
                         android:id="@+id/nav_view"
