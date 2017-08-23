@@ -2,4 +2,7 @@
     <string name="app_name">ForMe</string>
     <string name="test_log">Test log</string>
     <string name="me">Andy Lee</string>
+    <string name="todo_item">ToDo</string>
+    <string name="date_event_item">Event</string>
+    <string name="empty_todo">You don\'t have any todo lists!</string>
 </resources>

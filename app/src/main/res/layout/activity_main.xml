@@ -12,17 +12,12 @@
     <android.support.design.widget.CoordinatorLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
         
-        <android.support.v7.widget.Toolbar
-                android:id="@+id/tool_bar"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:background="@color/colorPrimary"
-                android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-                app:popupTheme="@style/Theme.AppCompat.Light"
-                app:layout_scrollFlags="enterAlways|snap|scroll"
-        >
-        </android.support.v7.widget.Toolbar>
+        <android.support.design.widget.AppBarLayout android:layout_width="match_parent"
+                                                    android:layout_height="wrap_content">
+            <include layout="@layout/base_toolbar"/>
+        </android.support.design.widget.AppBarLayout>
         
         <FrameLayout
                 android:id="@+id/main_view_layout"
