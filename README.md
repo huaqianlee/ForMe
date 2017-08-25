@@ -21,5 +21,16 @@
 ##  学习的新东西
 * MVP
 
-## 博客
+## 项目相关的博文
 [实现真正意义上的第一个APP之启程](http://huaqianlee.github.io/2017/07/11/Android/%E5%AE%9E%E7%8E%B0%E7%9C%9F%E6%AD%A3%E6%84%8F%E4%B9%89%E4%B8%8A%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AAAPP%E4%B9%8B%E5%90%AF%E7%A8%8B/)
+
+[基于DrawerLayout打造卡片式Navigation](http://huaqianlee.github.io/2017/08/17/Android/the-card-navigation-base-on-drawerlayout/)
+
+[RecyclerView Item选中效果及点击事件的实现](http://huaqianlee.github.io/2017/08/17/Android/the-selected-effect-of-recyclerview-item/)
+
+[按返回键只关闭DrawerLayout侧边栏不退出Activity的实现方案](http://huaqianlee.github.io/2017/08/18/Android/hides-navigation-in-drawerlayou/)
+
+[通过自定义侧边导航栏的RecyclerView动态加载布局](http://huaqianlee.github.io/2017/08/18/Android/Dynamic-loading-layout-by-recyclerview-item/)
+
+
+

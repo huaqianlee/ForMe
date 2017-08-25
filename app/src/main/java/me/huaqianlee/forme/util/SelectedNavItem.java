@@ -1,4 +1,4 @@
-package me.huaqianlee.forme;
+package me.huaqianlee.forme.util;
 
 public  class SelectedNavItem {
     private static int slectedNavItem ;

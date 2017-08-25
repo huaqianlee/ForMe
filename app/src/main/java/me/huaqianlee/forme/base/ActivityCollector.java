@@ -1,4 +1,4 @@
-package me.huaqianlee.forme.util;
+package me.huaqianlee.forme.base;
 
 
 import android.app.Activity;

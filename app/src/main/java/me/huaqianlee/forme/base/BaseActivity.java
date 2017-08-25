@@ -1,9 +1,8 @@
-package me.huaqianlee.forme;
+package me.huaqianlee.forme.base;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import me.huaqianlee.forme.util.ActivityCollector;
 import me.huaqianlee.forme.util.LogUtil;
 
 public class BaseActivity extends AppCompatActivity {

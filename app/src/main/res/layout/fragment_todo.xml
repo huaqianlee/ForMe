@@ -1,49 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+
+<FrameLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
         xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/todo_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:context="me.huaqianlee.forme.ToDoFragment">
+        android:layout_height="match_parent">
     
-    <android.support.design.widget.CoordinatorLayout
-            android:id="@+id/todo_layout"
+    <LinearLayout
+            android:gravity="center"
+            android:id="@+id/todo_empty"
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-        <LinearLayout
-                android:gravity="center"
-                android:id="@+id/todo_empty"
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-            
-            <ImageView android:layout_width="100dp" android:layout_height="100dp"
-                       android:src="@drawable/empty_view_bg"/>
-            
-            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
-                      android:gravity="center"
-                      android:padding="10dp"
-                      android:textSize="15sp"
-                      android:text="@string/empty_todo"/>
-        </LinearLayout>
         
-<!--        <android.support.v7.widget.RecyclerView
-                android:id="@+id/todo_recyclerview"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:layout_behavior="@string/appbar_scrolling_view_behavior">f
-            
-            <android.support.design.widget.FloatingActionButton
-                    android:id="@+id/todo_add_item_FAB"
-                    android:src="@drawable/ic_add_white_24dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+        <ImageView android:layout_width="100dp" android:layout_height="100dp"
+                   android:src="@drawable/empty_view_bg"/>
         
-        </android.support.v7.widget.RecyclerView>-->
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                  android:gravity="center"
+                  android:padding="10dp"
+                  android:textSize="15sp"
+                  android:text="@string/empty_todo"/>
+    </LinearLayout>
     
+    <me.huaqianlee.forme.todo.RecyclerViewSurpportEmpty
+            android:id="@+id/todo_recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layoutManager="LinearLayoutManager"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
     
-    </android.support.design.widget.CoordinatorLayout>
+    <include layout="@layout/floating_actionbutton"/>
+    
 
-</android.support.constraint.ConstraintLayout>
+
+</FrameLayout>
+

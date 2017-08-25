@@ -1,20 +1,18 @@
 package me.huaqianlee.forme;
 
-import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBar;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.*;
-import android.widget.Toast;
 import me.huaqianlee.forme.adapter.NavFuncAdapter;
+import me.huaqianlee.forme.base.BaseActivity;
 import me.huaqianlee.forme.bean.Func;
 import me.huaqianlee.forme.util.LogUtil;
-import me.huaqianlee.forme.util.MainViewSwitch;
+import me.huaqianlee.forme.util.SelectedNavItem;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,6 +49,7 @@ public class MainActivity extends BaseActivity {
         initFunc();  // 初始化侧边导航栏
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.nav_recycler_view);
         GridLayoutManager layoutManager = new GridLayoutManager(this, 2);
+        recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(layoutManager);
         final NavFuncAdapter adapter = new NavFuncAdapter(funcList);
         recyclerView.setAdapter(adapter);
@@ -59,7 +58,6 @@ public class MainActivity extends BaseActivity {
             public void onItemClick(View view, int position) {
                 SelectedNavItem.setSlectedNavItem(position); // 更新选中的位置
                 new MainViewSwitch().switchMainView(MainActivity.this); //切换主视图
-                switchTitle(position);
                 adapter.notifyDataSetChanged();
                 LogUtil.d(TAG, "You clicked the nav button!");
             }
@@ -98,7 +96,7 @@ public class MainActivity extends BaseActivity {
         return true;
     }
 
-    private void switchTitle(int position) {
+/*    private void switchTitle(int position) {
         ActionBar toolbar = getSupportActionBar();
         switch (position) {
             case SelectedNavItem.TODO:
@@ -112,7 +110,7 @@ public class MainActivity extends BaseActivity {
 
         }
 
-    }
+    }*/
 
     private Func[] funcs = {new Func("Call", R.drawable.nav_call), new Func("Friends", R.drawable.nav_friends), new Func("Location", R.drawable.nav_location),
             new Func("Mail", R.drawable.nav_mail), new Func("Tasks", R.drawable.nav_task)};
@@ -125,7 +123,6 @@ public class MainActivity extends BaseActivity {
         funcList.add(toDoFunc);
         SelectedNavItem.setSlectedNavItem(SelectedNavItem.TODO);
         new MainViewSwitch().switchMainView(this);
-        switchTitle(SelectedNavItem.TODO);
 
         Func toDoFunc2 = new Func("Lee", R.drawable.lee);
         funcList.add(toDoFunc2);

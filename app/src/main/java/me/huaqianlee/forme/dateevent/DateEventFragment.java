@@ -1,4 +1,4 @@
-package me.huaqianlee.forme;
+package me.huaqianlee.forme.dateevent;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
