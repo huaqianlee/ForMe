@@ -7,12 +7,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import me.huaqianlee.forme.R;
 import me.huaqianlee.forme.base.BaseFragment;
+import me.huaqianlee.forme.util.LogUtil;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 
 public class ToDoFragment extends BaseFragment {
     ArrayList<TodoItem> items = new ArrayList<>();
+
+    private String[] testStrings = {"Clean my room",
+            "Water the plants",
+            "Get car washed",
+            "Get my dry cleaning"
+    };
 
     @Nullable
     @Override
@@ -28,10 +36,7 @@ public class ToDoFragment extends BaseFragment {
         funcMainActivity.runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                TodoItem item = new TodoItem() ;
-                items.add(item);
-                TodoItem item2 = new TodoItem() ;
-                items.add(item2);
+                initItem();
                 RecyclerViewSurpportEmpty todoView = (RecyclerViewSurpportEmpty) view.findViewById(R.id.todo_recyclerview);
                 todoView.setEmptyView(view.findViewById(R.id.todo_empty));
                 /*LinearLayoutManager manager = new LinearLayoutManager(activity);
@@ -40,6 +45,15 @@ public class ToDoFragment extends BaseFragment {
                 todoView.setAdapter(adapter);
             }
         });
-
+    }
+    
+    private void  initItem() {
+        for (String string :
+                testStrings) {
+            TodoItem item = new TodoItem(string, true, new Date());
+            LogUtil.d("ToDoFragment", String.valueOf(new Date()));
+            item.setmToDoColor(getResources().getColor(R.color.primary_dark));
+            items.add(item);
+        }
     }
 }

@@ -19,6 +19,9 @@ public class TodoItem implements Serializable{
     private static final String TODOCOLOR = "todocolor";
     private static final String TODOIDENTIFIER = "todoidentifier";
 
+    public TodoItem () {
+        this("Go to the morning run!", true, new Date());
+    }
 
     public TodoItem(String mToDoContent, boolean mHasReminder, Date mToDoDate) {
         this.mToDoContent = mToDoContent;
@@ -49,10 +52,6 @@ public class TodoItem implements Serializable{
         }
 
         return object;
-    }
-
-    public TodoItem () {
-        this("Go to the morning run!", true, new Date());
     }
 
     public String getmToDoContent() {

@@ -16,6 +16,7 @@ import android.widget.TextView;
 import com.amulyakhare.textdrawable.TextDrawable;
 import me.huaqianlee.forme.R;
 import me.huaqianlee.forme.base.MyApplication;
+import me.huaqianlee.forme.util.LogUtil;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -75,12 +76,14 @@ public class TodoListAdapter extends RecyclerView.Adapter<TodoListAdapter.ViewHo
         }
 
         if (null != item.getmToDoDate()) {
-            String timeText;
-            if (android.text.format.DateFormat.is24HourFormat(MyApplication.getContext())) {
+            String timeText ;
+            //timeText = String.valueOf(item.getmToDoDate());
+            if (android.text.format.DateFormat.is24HourFormat(ToDoFragment.funcMainActivity)) {
                 timeText = AddToDoActivity.formatDate(DATE_TIME_FORMAT_24_HOUR,item.getmToDoDate());
             } else {
                 timeText = AddToDoActivity.formatDate(DATE_TIME_FORMAT_12_HOUR,item.getmToDoDate());
             }
+            LogUtil.d("TodoListAdapter", "Test"+ timeText);
             holder.timeView.setText(timeText);
         }
     }
