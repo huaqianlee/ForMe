@@ -1,5 +1,6 @@
 package me.huaqianlee.forme;
 
+import android.app.Fragment;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.view.GravityCompat;
@@ -36,7 +37,7 @@ public class MainActivity extends BaseActivity {
             decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
             toolbar.setContentInsetsRelative(50, 10);
             //getWindow().setStatusBarColor(Color.TRANSPARENT);
-            //getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         }
 
         mlayout = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -57,7 +58,7 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onItemClick(View view, int position) {
                 SelectedNavItem.setSlectedNavItem(position); // 更新选中的位置
-                new MainViewSwitch().switchMainView(MainActivity.this); //切换主视图
+                MainViewSwitch.switchMainView(MainActivity.this); //切换主视图
                 adapter.notifyDataSetChanged();
                 LogUtil.d(TAG, "You clicked the nav button!");
             }
@@ -122,7 +123,7 @@ public class MainActivity extends BaseActivity {
         toDoFunc.setName("ToDO");
         funcList.add(toDoFunc);
         SelectedNavItem.setSlectedNavItem(SelectedNavItem.TODO);
-        new MainViewSwitch().switchMainView(this);
+        MainViewSwitch.switchMainView(this);
 
         Func toDoFunc2 = new Func("Lee", R.drawable.lee);
         funcList.add(toDoFunc2);

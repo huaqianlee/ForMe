@@ -19,8 +19,8 @@ import me.huaqianlee.forme.util.SelectedNavItem;
  * 切换主界面视图过工具类
  */
 public class MainViewSwitch {
-
-    public void switchMainView(MainActivity activity) {
+    private static Fragment currentFragment ;
+    public static void switchMainView(MainActivity activity) {
         ActionBar toolbar = activity.getSupportActionBar();
         switch (SelectedNavItem.getSlectedNavItem()) {
             case SelectedNavItem.TODO:
@@ -42,11 +42,33 @@ public class MainViewSwitch {
         }
     }
 
-    private void replaceFragment(Fragment fragment, BaseActivity activity) {
+/*    private void replaceFragment(Fragment fragment, BaseActivity activity) {
         FragmentManager fragmentManager = activity.getSupportFragmentManager();
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         transaction.replace(R.id.main_view_layout, fragment);
         transaction.commit();
+    }*/
+
+    private static void replaceFragment(Fragment fragment, BaseActivity activity) {
+        FragmentManager fragmentManager = activity.getSupportFragmentManager();
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        if (null == currentFragment) {
+            transaction.replace(R.id.main_view_layout, fragment);
+        }else if (!fragment.isAdded()) {
+            transaction.hide(currentFragment).add(R.id.main_view_layout, fragment);
+        } else {
+            transaction.hide(currentFragment).show(fragment);
+        }
+        currentFragment = fragment;
+        transaction.commit();
+    }
+
+    public static void setCurrentFragment(Fragment fragment){
+        currentFragment = fragment;
+    }
+
+    public static Fragment getCurrentFragment(Fragment fragment){
+        return currentFragment;
     }
 
 }
