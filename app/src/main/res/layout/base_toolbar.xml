@@ -8,7 +8,7 @@
         app:navigationIcon="@drawable/ic_menu"
         android:fitsSystemWindows="true"
         app:popupTheme="@style/Theme.AppCompat.Light"
-        app:layout_scrollFlags="enterAlways|snap|scroll"
         xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+<!--    app:layout_scrollFlags="enterAlways|snap|scroll"-->
     
 </android.support.v7.widget.Toolbar>

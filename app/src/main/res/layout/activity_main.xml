@@ -7,7 +7,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context="me.huaqianlee.forme.MainActivity">
-    <!--xmlns:app="http://schemas.android.com/apk/me.huaqianlee.forme"-->
     
     <android.support.design.widget.CoordinatorLayout
             android:id="@+id/main_cdlayout"
@@ -23,10 +22,8 @@
                 android:id="@+id/main_view_layout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                
-        >
-           <!-- app:layout_behavior="@string/appbar_scrolling_view_behavior"-->
-        </FrameLayout>
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        />
     
     </android.support.design.widget.CoordinatorLayout>
     
@@ -40,6 +37,7 @@
                         android:layout_height="wrap_content"
                         app:headerLayout="@layout/nav_header"
                 />-->
+        <!--自定义导航栏，不适用官方提供的NavigationView-->
         <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                         android:layout_width="match_parent"
                         android:layout_height="180dp"
