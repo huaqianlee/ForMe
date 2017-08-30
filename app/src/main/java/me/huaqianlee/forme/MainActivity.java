@@ -97,22 +97,6 @@ public class MainActivity extends BaseActivity {
         return true;
     }
 
-/*    private void switchTitle(int position) {
-        ActionBar toolbar = getSupportActionBar();
-        switch (position) {
-            case SelectedNavItem.TODO:
-                toolbar.setTitle(R.string.todo_item);
-                break;
-            case SelectedNavItem.DATEEVENT:
-                toolbar.setTitle(R.string.date_event_item);
-                break;
-            default:
-                toolbar.setTitle(R.string.app_name);
-
-        }
-
-    }*/
-
     private Func[] funcs = {new Func("Call", R.drawable.nav_call), new Func("Friends", R.drawable.nav_friends), new Func("Location", R.drawable.nav_location),
             new Func("Mail", R.drawable.nav_mail), new Func("Tasks", R.drawable.nav_task)};
 

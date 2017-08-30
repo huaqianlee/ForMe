@@ -6,4 +6,7 @@
     <string name="date_event_item">Event</string>
     <string name="empty_todo">You don\'t have any todo lists!</string>
     <string name="item_default_text">Go to the morning run!</string>
+    <string name="title">Title</string>
+    <string name="remindMe">Remind me</string>
+    <string name="reminder_set_result">Reminder set for %1$s, %2$s %3$s</string>
 </resources>

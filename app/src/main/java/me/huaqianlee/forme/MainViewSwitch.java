@@ -4,15 +4,9 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBar;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.view.ViewGroup;
-import me.huaqianlee.forme.*;
 import me.huaqianlee.forme.base.BaseActivity;
 import me.huaqianlee.forme.dateevent.DateEventFragment;
-import me.huaqianlee.forme.todo.RecyclerViewSurpportEmpty;
 import me.huaqianlee.forme.todo.ToDoFragment;
-import me.huaqianlee.forme.util.LogUtil;
 import me.huaqianlee.forme.util.SelectedNavItem;
 
 /*
