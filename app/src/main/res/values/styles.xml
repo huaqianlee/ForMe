@@ -12,6 +12,52 @@
     
     <style name="ForMeTheme" parent="AppTheme">
     </style>
-
+    
+    <style name="ToolBarTheme" parent="Widget.AppCompat.Toolbar">
+        <item name="titleTextAppearance">@style/ToolbarTitleTextAppearanceLight</item>
+    </style>
+    
+    <!--Change color of title on Toolbar-->
+    <style name="ToolbarTitleTextAppearanceLight" parent="Base.TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textColor">@android:color/white</item>
+    
+    </style>
+    
+    <style name="OverflowThreeDotsWhite" parent="Widget.AppCompat.Light.ActionButton.Overflow">
+        <item name="android:src">@drawable/ic_menu_overflow_light</item>
+    
+    </style>
+    <style name="PopupMenuLight" parent="Widget.AppCompat.PopupMenu">
+        <item name="android:popupBackground">@android:color/black</item>
+    </style>
+    
+    <style name="CustomStyle.LightTheme" parent="Theme.AppCompat.Light">
+        
+        <item name="actionOverflowButtonStyle">@style/OverflowThreeDotsWhite</item>
+        <item name="toolbarStyle">@style/ToolBarTheme</item>
+        <item name="popupMenuStyle">@style/PopupMenuLight</item>
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="colorAccent">@color/accent</item>
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primary_dark</item>
+        color of thumb when inactive
+        <item name="colorSwitchThumbNormal">@color/grey300</item>
+        <!--Inactive track color-->
+        <item name="android:colorForeground">@color/grey600</item>
+    
+    </style>
+    <style name="CustomStyle.DarkTheme" parent="Theme.AppCompat">
+        
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="colorAccent">@color/amber</item>
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primary_dark</item>
+        <!--color of thumb when inactive-->
+        <item name="colorSwitchThumbNormal">@color/grey300</item>
+        <!--Inactive track color-->
+        <item name="android:colorForeground">@color/grey600</item>
+    </style>
 </resources>
 

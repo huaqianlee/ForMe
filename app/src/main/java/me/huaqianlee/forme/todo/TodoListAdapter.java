@@ -27,7 +27,7 @@ public class TodoListAdapter extends RecyclerView.Adapter<TodoListAdapter.ViewHo
     private static final String LIGHTTHEME = "me.huaqianlee.forme.todo.lighttheme";
     public static final String DATE_TIME_FORMAT_12_HOUR = "MMM d, yyyy  h:mm a";
     public static final String DATE_TIME_FORMAT_24_HOUR = "MMM d, yyyy  k:mm";
-    private static final String TODOITEM = "me.huaqianlee.forme.todo.todoitem";
+    //private static final String TODOITEM = "me.huaqianlee.forme.todo.todoitem";
     private static final int REQUEST_ID_TODOITEM = 100;
     private ArrayList<TodoItem> items;
     private TodoItem mDeletedItem;
@@ -148,8 +148,9 @@ public class TodoListAdapter extends RecyclerView.Adapter<TodoListAdapter.ViewHo
                 @Override
                 public void onClick(View v) {
                     TodoItem item = items.get(getAdapterPosition());
+                    LogUtil.e("TOdoListAdapter ITEM CONTENT" ,""+item.getmToDoContent());
                     Intent intent = new Intent(ToDoFragment.funcMainActivity, AddToDoActivity.class);
-                    intent.putExtra(TODOITEM,item);
+                    intent.putExtra(ToDoFragment.TODOITEM,item);
                     ToDoFragment.funcMainActivity.startActivityForResult(intent, REQUEST_ID_TODOITEM);
                 }
             });
