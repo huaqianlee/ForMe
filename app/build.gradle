@@ -34,4 +34,5 @@ dependencies {
     compile 'com.github.bumptech.glide:glide:3.7.0'
     testCompile 'junit:junit:4.12'
     compile'com.amulyakhare:com.amulyakhare.textdrawable:1.0.1'
+    compile 'com.wdullaer:materialdatetimepicker:1.5.1'
 }
