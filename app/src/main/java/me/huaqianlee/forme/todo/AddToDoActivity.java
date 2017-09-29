@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.app.NavUtils;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.SwitchCompat;
 import android.support.v7.widget.Toolbar;
@@ -13,6 +14,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.text.format.DateFormat;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.*;
@@ -48,6 +50,32 @@ public class AddToDoActivity extends BaseActivity implements TimePickerDialog.On
     private FloatingActionButton todoFAB;
     private TextView newTodoText;
 
+
+    @Override
+    public void onBackPressed() {
+        if(reminderDate.before(new Date())){
+            item.setmToDoDate(null);
+        }
+        makeResult(RESULT_OK);
+        super.onBackPressed();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case android.R.id.home:
+                if(NavUtils.getParentActivityName(this)!=null){
+                    makeResult(RESULT_CANCELED);
+                    NavUtils.navigateUpFromSameTask(this);
+                }
+                hideKeyboard(todoEdit);
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+
+    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -131,6 +159,7 @@ public class AddToDoActivity extends BaseActivity implements TimePickerDialog.On
 
             }
         });
+
 
         /*Finish FAB button*/
         todoFAB.setOnClickListener(new View.OnClickListener() {
